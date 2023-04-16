@@ -1,5 +1,6 @@
 package homework.Task2;
 
+import java.util.*;
 
 public class Course {
 
@@ -7,12 +8,14 @@ public class Course {
     private String courseName;
     private String[] prerequisites;
     private int maxStudents;
+    private List<Students> enrolledStudents;
 
     public Course(String courseCode, String courseName, String[] prerequisites, int maxStudents) {
         this.courseCode = courseCode;
         this.courseName = courseName;
         this.prerequisites = prerequisites;
         this.maxStudents = maxStudents;
+        this.enrolledStudents = new ArrayList<>();
     }
 
     public String getCourseCode() {
@@ -45,6 +48,15 @@ public class Course {
 
     public void setMaxStudents(int maxStudents) {
         this.maxStudents = maxStudents;
+    }
+
+    public void enrollStudent(Students student) {
+        enrolledStudents.add(student);
+        student.getGrades().put(this, 5); //Set the grade 5 initially;
+    }
+
+    public List<Students> getEnrolledStudents() {
+        return enrolledStudents;
     }
 
     @Override
