@@ -20,7 +20,7 @@ public class AcademicStaff extends Staff {
 
     public void introduceMyself() {
         System.out.println("Hello. My name is Professor " + getFirstName() + ".\n" +
-                "and i teach the classes " + Arrays.toString(getCourses()));
+                "and i teach the classes " + Arrays.toString(getCourses()) + "\n");
     }
 }
 

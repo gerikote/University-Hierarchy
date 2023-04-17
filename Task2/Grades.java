@@ -7,7 +7,8 @@ public class Grades {
         this.gradeCalulator = new GradeCalculator();
     }
 
-    public int calculateGrade(Students student) {
+    public int calculateGPA(Students student) {
+        System.out.print("The student's" + student.getFirstName() + " " + student.getLastName() + " gpa is : ");
         return gradeCalulator.calculateGrade(student);
     }
 

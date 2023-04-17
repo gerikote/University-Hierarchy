@@ -18,6 +18,6 @@ public class UndergraduateStudents extends Students {
 
     public void introduceMyself() {
         System.out.println("Hello. My name is " + getFirstName() + ".\n" +
-                "I am on the " + getYearLevel() + " year and my major is " + getMajor());
+                "I am on the " + getYearLevel() + " year and my major is " + getMajor() + "\n");
     }
 }

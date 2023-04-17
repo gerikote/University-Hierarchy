@@ -4,8 +4,7 @@ import java.util.Map;
 
 public class GradeCalculator {
     public int calculateGrade(Map<Course, Integer> grades) {
-        //Calculate the students grade by taking the average of all of their courses
-
+        //Calculate GPA formula
         int total = 0;
         for (int grade : grades.values()) {
             total += grade;

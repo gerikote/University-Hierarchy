@@ -65,7 +65,7 @@ public class University {
         System.out.println("Welcome to " + getName() + "\n"
                 + "Our university is located in " + getAddress() + "\n"
                 + "The courses we offer are : " + getCourses() + "\n"
-                + "Our wonderful staff includes our teachers : " + getStaff());
+                + "Our wonderful staff includes our teachers : " + getStaff() + "\n");
     }
 }
 
