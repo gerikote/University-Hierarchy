@@ -9,18 +9,10 @@ public class Demo {
         GraduateStudents graduate2 = new GraduateStudents("2628", "Maria", "Foss", "mfos@gmail.com", "Math", "Complex number analysis");
         GraduateStudents graduate3 = new GraduateStudents("2654", "Ryan", "Creed", "rcreed@gmail.com", "Engineer", "Structural mechanics");
 
-        //Graduate 1 introducing himself
-        System.out.println();
-        graduate1.introduceMyself();
-
         //Creating Undergraduate Students
         UndergraduateStudents undergraduate1 = new UndergraduateStudents("5647", "Diego", "Gonazalez", "dgonzalez@gmail.com", "Business", 1);
         UndergraduateStudents undergraduate2 = new UndergraduateStudents("2569", "Ivan", "Gonazalez", "Igonzalez@gmail.com", "Medical", 2);
         UndergraduateStudents undergraduate3 = new UndergraduateStudents("1238", "Chris", "White", "cwhite@gmail.com", "Physics", 4);
-
-        //Undergraduate 1 introducing himself
-        System.out.println();
-        undergraduate1.introduceMyself();
 
         //Creating an ArrayList of students to enter as an input at University
         ArrayList<Students> studentsList = new ArrayList<>();
@@ -31,7 +23,7 @@ public class Demo {
         studentsList.add(undergraduate2);
         studentsList.add(undergraduate3);
 
-        //Creating courses
+        //Creating courses and prerequisites
         Course biology101 = new Course("101", "Biology101", null, 25);
         Course math101 = new Course("101", "Math101", null, 25);
 
@@ -50,16 +42,16 @@ public class Demo {
         AcademicStaff professor2 = new AcademicStaff("2", "Tom", "Mullins", "tmullins@gmail.com", null);
         AcademicStaff professor3 = new AcademicStaff("3", "Andrew", "Richards", "arichards@gmail.com", null);
 
-        //Professor 1 introducing himself
-        System.out.println();
-        professor1.introduceMyself();
+        //Creating responsibilities for Administrative staff
+        String[] libraryAssist = {"Librarian duties", "Library organisation", "Reference services", "Instruction and training"};
+        String[] labAssist = {"Preparing equipment and materials", "Conducting experiments and tests", "Data collection and analysis"};
 
         //Creating administrative Staff
-        AdministrativeStaff adminStaff1 = new AdministrativeStaff("10", "Tara", "Flowers", "tflowers@gmail.com", null);
+        AdministrativeStaff adminStaff1 = new AdministrativeStaff("10", "Tara", "Flowers", "tflowers@gmail.com", libraryAssist);
         AdministrativeStaff adminStaff2 = new AdministrativeStaff("11", "Jack", "Ford", "jford@gmail.com", null);
         AdministrativeStaff adminStaff3 = new AdministrativeStaff("12", "John", "Wig", "jwigg@gmail.com", null);
-        AdministrativeStaff labAs1 = new AdministrativeStaff("13", "Carl", "Wig", "carl@gmail.com", null);
-        AdministrativeStaff labAs2 = new AdministrativeStaff("14", "Nick", "Wig", "nickw@gmail.com", null);
+        AdministrativeStaff labAs1 = new AdministrativeStaff("13", "Carl", "Wig", "carl@gmail.com", labAssist);
+        AdministrativeStaff labAs2 = new AdministrativeStaff("14", "Nick", "Wig", "nickw@gmail.com", labAssist);
 
         //Creating an arrayList for staff to enter as an input at University object
         ArrayList<Staff> staffList = new ArrayList<>();
@@ -81,7 +73,6 @@ public class Demo {
         Lab lab1 = new Lab("101", "Physics", null, 10, labAs1);
         Lab lab2 = new Lab("102", "Biology", null, 10, labAs2);
 
-
         //Creating an ArrayList to enter as an input at University
         ArrayList<Course> courseList = new ArrayList<>();
         courseList.add(math);
@@ -96,28 +87,42 @@ public class Demo {
         University NTUA = new University("National Technical University of Athens", "Athens,Zografu", studentsList, staffList, courseList);
 
         //Print the University Details
-        System.out.println();
         NTUA.getDetails();
 
+        //Graduate 1 introducing himself
+        graduate1.introduceMyself();
+
+        //Undergraduate 1 introducing himself
+        undergraduate1.introduceMyself();
+
+        //Professor 1 introducing himself
+        professor1.introduceMyself();
+
+        //Lab Assistant introducing himself
+        labAs1.introduceMyself();
+
+        //Administrative Staff introducing himself
+        adminStaff1.introduceMyself();
+
+        //Creating a Grades object
         Grades grades = new Grades();
+
+        //Enrolling undergraduate1 in math and biology classes
         math.enrollStudent(undergraduate1);
         biology.enrollStudent(undergraduate1);
 
         //Check the student's grades
-        System.out.println();
-        System.out.println("These are the grades for undergraduate 1 Diego");
         System.out.println(undergraduate1.getGrades());
 
-        //Make the student study
+        //Make the student study hard
+        undergraduate1.studyHard();
+        undergraduate1.study(math);
+
+        //Calculate GPA
+        System.out.println(grades.calculateGPA(undergraduate1));
         System.out.println();
-        undergraduate1.study();
 
-        System.out.println("This is the average grade for undergraduate 1 Diego");
-        System.out.println(grades.calculateGrade(undergraduate1));
-        System.out.println();
-
-        System.out.println("These are the grades for undergraduate 1 Diego");
-        System.out.println(undergraduate1.getGrades());
-
+        //Student gives an exam
+        undergraduate1.giveExam(math);
     }
 }

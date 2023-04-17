@@ -51,8 +51,14 @@ public class Course {
     }
 
     public void enrollStudent(Students student) {
+        System.out.println("The student " + student.getFirstName() + " " +student.getLastName() + " was successfully enrolled in the course " + getCourseName() +"\n");
         enrolledStudents.add(student);
         student.getGrades().put(this, 5); //Set the grade 5 initially;
+    }
+
+    public void dropoutStudent(Students student) {
+        enrolledStudents.remove(student);
+        student.getGrades().remove(this);
     }
 
     public List<Students> getEnrolledStudents() {

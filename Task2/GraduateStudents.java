@@ -18,6 +18,6 @@ public class GraduateStudents extends Students {
 
     public void introduceMyself() {
         System.out.println("Hello. My name is " + getFirstName() + ".\n" +
-                "My major is " + getMajor() + " and my thesis topic is " + getThesisTopic());
+                "My major is " + getMajor() + " and my thesis topic is " + getThesisTopic() + "\n");
     }
 }

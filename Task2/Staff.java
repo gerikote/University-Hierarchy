@@ -8,7 +8,6 @@ public class Staff extends Person {
     public Staff(String staffID, String firstName, String lastName, String email) {
         super(firstName, lastName, email);
         this.staffID = staffID;
-
     }
 
     public String getStaffID() {
