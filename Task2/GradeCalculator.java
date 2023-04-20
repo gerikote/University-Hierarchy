@@ -12,7 +12,7 @@ public class GradeCalculator {
         return total / grades.size();
     }
 
-    public int calculateGrade(Students student) {
+    public int calculateGrade(Student student) {
         //This is made just to call the method calculateGrade(Map<Course,Integer grades)
         //Could merge these methods in one
         return calculateGrade(student.getGrades());

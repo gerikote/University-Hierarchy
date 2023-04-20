@@ -2,20 +2,49 @@ package homework.Task2;
 
 import java.util.*;
 
-public class Students extends Person {
+public abstract class Student extends Person {
+    private static int counter=0;
     private String studentID;
-
     private String major;
     private Map<Course, Integer> grades;
 
-    public Students(String studentID, String firstName, String lastName, String email, String major) {
+    private List<Course> enrolledCourses;
+
+    public Student( String firstName, String lastName, String email, String major) {
         super(firstName, lastName, email);
-        this.studentID = studentID;
+        this.studentID = generateStudentID();
         this.major = major;
         this.grades = new HashMap<>();
+        this.enrolledCourses=new ArrayList<>();
     }
 
-    public void studyHard() {
+    protected void enrollFromCourse(Course course){
+        enrolledCourses.add(course);
+    }
+
+    public double calculateTuition(){
+        int totalTuition=0;
+        for(int i=0; i<enrolledCourses.size();i++){
+            totalTuition+=enrolledCourses.get(i).getTuition();
+        }
+        System.out.println("The student is enrolled in the courses : " + enrolledCourses.toString() + "\n"
+                        + "and the total amount owed in tuition fees is : " +totalTuition +"$");
+
+        return totalTuition;
+    }
+
+    public void payTuition(){
+        System.out.println("The Student " + firstName + " " + lastName + " with student id : " + studentID +"\n"
+                            + " has successfully paid his total tuition of " + this.calculateTuition() + "$");
+    }
+
+    private String generateStudentID(){
+        counter++;
+        String id =String.format("%05d",counter);
+        return id;
+    }
+
+    public void study() {
         System.out.println("The grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades());
         System.out.println("The student just spent an entire day studying all his classes");
         for (Course course : grades.keySet()) {
@@ -37,7 +66,7 @@ public class Students extends Person {
 
     }
 
-    public void giveExam(Course course) {
+    public void takeExam(Course course) {
 
         System.out.println("The grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades());
         System.out.println("The student " + getFirstName() + " is ready to give a " + course.getCourseName() + " exam");
@@ -55,7 +84,8 @@ public class Students extends Person {
         System.out.println("The new grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades() + "\n");
 
     }
-
+@Override
+    public abstract void introduceMyself();
     public String getStudentID() {
         return studentID;
     }

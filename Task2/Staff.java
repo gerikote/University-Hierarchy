@@ -1,7 +1,7 @@
 package homework.Task2;
 
 
-public class Staff extends Person {
+public abstract class Staff extends Person {
     private String staffID;
 
 
@@ -17,5 +17,7 @@ public class Staff extends Person {
     public void setStaffID(String staffID) {
         this.staffID = staffID;
     }
+
+    public abstract void introduceMyself();
 
 }

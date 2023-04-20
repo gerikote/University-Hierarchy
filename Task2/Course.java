@@ -8,14 +8,16 @@ public class Course {
     private String courseName;
     private String[] prerequisites;
     private int maxStudents;
-    private List<Students> enrolledStudents;
+    private List<Student> enrolledStudents;
 
-    public Course(String courseCode, String courseName, String[] prerequisites, int maxStudents) {
+    private double tuition;
+
+    public Course(String courseCode, String courseName, int maxStudents) {
         this.courseCode = courseCode;
         this.courseName = courseName;
-        this.prerequisites = prerequisites;
         this.maxStudents = maxStudents;
         this.enrolledStudents = new ArrayList<>();
+        this.tuition=250d;
     }
 
     public String getCourseCode() {
@@ -50,18 +52,34 @@ public class Course {
         this.maxStudents = maxStudents;
     }
 
-    public void enrollStudent(Students student) {
+    public void enrollStudent(Student student) {
         System.out.println("The student " + student.getFirstName() + " " +student.getLastName() + " was successfully enrolled in the course " + getCourseName() +"\n");
         enrolledStudents.add(student);
         student.getGrades().put(this, 5); //Set the grade 5 initially;
+        student.enrollFromCourse(this);
     }
 
-    public void dropoutStudent(Students student) {
+    public double getTuition() {
+        return tuition;
+    }
+
+    public void dropoutStudent(Student student) {
         enrolledStudents.remove(student);
         student.getGrades().remove(this);
     }
 
-    public List<Students> getEnrolledStudents() {
+    public void printCourseRevenue(){
+        double courseRev=(enrolledStudents.size()*tuition);
+        System.out.println("The revenue this course generated is : " + courseRev +"$");
+    }
+
+    public double getCourseRevenue(){
+        double courseRev=(enrolledStudents.size()*tuition);
+        return courseRev;
+
+    }
+
+    public List<Student> getEnrolledStudents() {
         return enrolledStudents;
     }
 

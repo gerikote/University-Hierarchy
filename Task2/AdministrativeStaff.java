@@ -1,26 +1,28 @@
 package homework.Task2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AdministrativeStaff extends Staff {
-    private String[] responsibilities;
+    private ArrayList<String> responsibilities;
 
-    public AdministrativeStaff(String staffID, String firstName, String lastName, String email, String[] responsibilities) {
+    public AdministrativeStaff(String staffID, String firstName, String lastName, String email) {
         super(staffID, firstName, lastName, email);
-        this.responsibilities = responsibilities;
+        this.responsibilities = new ArrayList<>();
     }
 
-    public String[] getResponsibilities() {
+    public ArrayList<String> getResponsibilities() {
         return responsibilities;
     }
 
-    public void setResponsibilities(String[] responsibilities) {
-        this.responsibilities = responsibilities;
+    public void addResponisbility(String responsibility){
+        this.responsibilities.add(responsibility);
     }
 
+    @Override
     public void introduceMyself() {
         System.out.println("Hello. My name is " + firstName + " and i am part of the administrative staff. " + "\n"
-                + "My responsibilities are " + Arrays.toString(responsibilities) + "\n");
+                + "My responsibilities are " + responsibilities.toString() + "\n");
     }
 }
 

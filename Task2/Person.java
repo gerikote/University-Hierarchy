@@ -1,6 +1,6 @@
 package homework.Task2;
 
-public class Person {
+public abstract class Person {
 
     String firstName;
     String lastName;
@@ -35,6 +35,8 @@ public class Person {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public abstract void introduceMyself();
 
     @Override
     public String toString() {
