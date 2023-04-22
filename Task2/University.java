@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class University {
 
-    private String name;
+    private final String name;
     private String address;
     private ArrayList<Student> students;
     private ArrayList<Staff> staff;
@@ -20,23 +20,24 @@ public class University {
 
     }
 
-    public void addStudent(Student student){
+    public void addStudent(Student student) {
         this.students.add(student);
     }
 
-    public void addStaff(Staff staffMember){
+    public void dropoutStudent(Student student) {
+        this.students.remove(student);
+    }
+
+    public void addStaff(Staff staffMember) {
         this.staff.add(staffMember);
     }
 
-    public void addCourse(Course course){
+    public void addCourse(Course course) {
         this.courses.add(course);
     }
+
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getAddress() {
@@ -59,12 +60,12 @@ public class University {
         return courses;
     }
 
-    public void calculateRevenue(){
-        double totalRev=0;
-        for(int i=0;i<courses.size();i++){
-           totalRev+= courses.get(i).getCourseRevenue();
+    public void calculateRevenue() {
+        double totalRev = 0;
+        for (int i = 0; i < courses.size(); i++) {
+            totalRev += courses.get(i).getCourseRevenue();
         }
-        System.out.println("The total revenue for the University is : " + totalRev +"$");
+        System.out.println("The total revenue for the University is : " + totalRev + "$");
     }
 
     public void printDetails() {

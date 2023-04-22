@@ -1,6 +1,5 @@
 package homework.Task2;
 
-import java.util.ArrayList;
 
 public class Demo {
     public static void main(String[] args) {
@@ -8,14 +7,14 @@ public class Demo {
         University NTUA = new University("National Technical University of Athens", "Athens,Zografu");
 
         //Creating Graduate Students
-        GraduateStudent graduate1 = new GraduateStudent( "John", "Brown", "johnbrown@gmail.com", "Biology", "DNA structure analysis");
-        GraduateStudent graduate2 = new GraduateStudent( "Maria", "Foss", "mfos@gmail.com", "Math", "Complex number analysis");
+        GraduateStudent graduate1 = new GraduateStudent("John", "Brown", "johnbrown@gmail.com", "Biology", "DNA structure analysis");
+        GraduateStudent graduate2 = new GraduateStudent("Maria", "Foss", "mfos@gmail.com", "Math", "Complex number analysis");
         GraduateStudent graduate3 = new GraduateStudent("Ryan", "Creed", "rcreed@gmail.com", "Engineer", "Structural mechanics");
 
         //Creating Undergraduate Students
-        UndergraduateStudent undergraduate1 = new UndergraduateStudent( "Diego", "Gonazalez", "dgonzalez@gmail.com", "Business", 1);
-        UndergraduateStudent undergraduate2 = new UndergraduateStudent( "Ivan", "Gonazalez", "Igonzalez@gmail.com", "Medical", 2);
-        UndergraduateStudent undergraduate3 = new UndergraduateStudent( "Chris", "White", "cwhite@gmail.com", "Physics", 4);
+        UndergraduateStudent undergraduate1 = new UndergraduateStudent("Diego", "Gonazalez", "dgonzalez@gmail.com", "Business", 1);
+        UndergraduateStudent undergraduate2 = new UndergraduateStudent("Ivan", "Gonazalez", "Igonzalez@gmail.com", "Medical", 2);
+        UndergraduateStudent undergraduate3 = new UndergraduateStudent("Chris", "White", "cwhite@gmail.com", "Physics", 4);
 
         //Adding students to University
         NTUA.addStudent(graduate1);
@@ -26,12 +25,10 @@ public class Demo {
         NTUA.addStudent(undergraduate3);
 
 
-
         //Creating Academic Staff
         AcademicStaff professor1 = new AcademicStaff("1", "Clayton", "Tumblerson", "ctamp@gmail.com");
         AcademicStaff professor2 = new AcademicStaff("2", "Tom", "Mullins", "tmullins@gmail.com");
         AcademicStaff professor3 = new AcademicStaff("3", "Andrew", "Richards", "arichards@gmail.com");
-
 
 
         //Creating administrative Staff
@@ -105,7 +102,15 @@ public class Demo {
         //Check the student's grades
         System.out.println(undergraduate1.getGrades());
 
-        //Make the student study hard
+        //Check the graduate student's thesis progress
+        System.out.println();
+        graduate1.printThesisProgress();
+
+        //Make the graduate student study hard
+        System.out.println();
+        graduate1.study();
+
+        //Make the undergraduate student study hard
         //Method Overloading example
         undergraduate1.study();
         undergraduate1.study(math);
@@ -133,6 +138,10 @@ public class Demo {
         //Print the University Details
         System.out.println();
         NTUA.printDetails();
+
+        //Average course attendance
+        Course.averageAttendance();
+
 
     }
 }
