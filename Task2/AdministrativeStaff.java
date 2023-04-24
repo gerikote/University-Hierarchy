@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public final class AdministrativeStaff extends Staff implements WageCalculator {
     private ArrayList<String> responsibilities;
 
-    public AdministrativeStaff(String staffID, String firstName, String lastName, String email) {
-        super(staffID, firstName, lastName, email);
+    public AdministrativeStaff( String firstName, String lastName, String email) {
+        super( firstName, lastName, email);
         this.responsibilities = new ArrayList<>();
     }
 

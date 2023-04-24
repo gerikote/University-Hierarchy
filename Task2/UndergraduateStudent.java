@@ -25,10 +25,6 @@ public final class UndergraduateStudent extends Student implements Studyable {
         return yearLevel;
     }
 
-    public void setYearLevel(int yearLevel) {
-        this.yearLevel = yearLevel;
-    }
-
     @Override
     public void introduceMyself() {
         System.out.println("Hello. My name is " + getFirstName() + ".\n" +
