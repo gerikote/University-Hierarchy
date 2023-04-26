@@ -3,7 +3,7 @@ package homework.Task2;
 
 import java.util.ArrayList;
 
-public class University {
+public class University implements RevenueCalculatable {
 
     private final String name;
     private String address;
@@ -60,12 +60,14 @@ public class University {
         return courses;
     }
 
-    public void calculateRevenue() {
+    @Override
+    public double getRevenue() {
         double totalRev = 0;
         for (int i = 0; i < courses.size(); i++) {
-            totalRev += courses.get(i).getCourseRevenue();
+            totalRev += courses.get(i).TUITION;
         }
         System.out.println("The total revenue for the University is : " + totalRev + "$");
+        return totalRev;
     }
 
     public void printDetails() {

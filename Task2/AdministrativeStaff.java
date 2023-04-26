@@ -2,7 +2,7 @@ package homework.Task2;
 
 import java.util.ArrayList;
 
-public final class AdministrativeStaff extends Staff implements WageCalculator {
+public final class AdministrativeStaff extends Staff implements Payable {
     private ArrayList<String> responsibilities;
 
     public AdministrativeStaff( String firstName, String lastName, String email) {
@@ -14,7 +14,7 @@ public final class AdministrativeStaff extends Staff implements WageCalculator {
         return responsibilities;
     }
 
-    public void addResponisbility(String responsibility) {
+    public void addResponsisbility(String responsibility) {
         this.responsibilities.add(responsibility);
     }
 
@@ -26,10 +26,10 @@ public final class AdministrativeStaff extends Staff implements WageCalculator {
 
     @Override
     public double calculateWage() {
-        double bonus = responsibilityBonus * (responsibilities.size());
-        double totalWage = baseWage + bonus;
+        double bonus = RESPONSIBILITY_BONUS * (responsibilities.size());
+        double totalWage = BASE_WAGE + bonus;
         System.out.println("The staff member's " + firstName + " " + lastName + " total wage is " + totalWage + "$"
-                + "\n" + "Base pay is " + baseWage + "$" + " and responsibility bonus is " + bonus + "$");
+                + "\n" + "Base pay is " + BASE_WAGE + "$" + " and responsibility bonus is " + bonus + "$");
         return totalWage;
     }
 }

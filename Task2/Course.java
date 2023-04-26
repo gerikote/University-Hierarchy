@@ -2,22 +2,18 @@ package homework.Task2;
 
 import java.util.*;
 
-public class Course {
+public class Course implements Enrollable,RevenueCalculatable {
 
     private String courseCode;
     private String courseName;
-    private int maxStudents;
     private List<Student> enrolledStudents;
-    private double tuition;
     protected static int courseCount = 0;
     protected static int totalEnrollments = 0;
 
-    public Course(String courseCode, String courseName, int maxStudents) {
+    public Course(String courseCode, String courseName) {
         this.courseCode = courseCode;
         this.courseName = courseName;
-        this.maxStudents = maxStudents;
         this.enrolledStudents = new ArrayList<>();
-        this.tuition = 250d;
         courseCount++;
     }
 
@@ -43,16 +39,9 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public int getMaxStudents() {
-        return maxStudents;
-    }
-
-    public void setMaxStudents(int maxStudents) {
-        this.maxStudents = maxStudents;
-    }
-
+    @Override
     public void enrollStudent(Student student) {
-        if (enrolledStudents.size() < maxStudents) {
+        if (enrolledStudents.size() < MAX_STUDENTS) {
             System.out.println("The student " + student.getFirstName() + " " + student.getLastName() + " was successfully enrolled in the course " + getCourseName() + "\n");
             enrolledStudents.add(student);
             student.getGrades().put(this, 5); //Set the grade 5 initially;
@@ -64,24 +53,20 @@ public class Course {
         }
     }
 
-    public double getTuition() {
-        return tuition;
-    }
-
+    @Override
     public void dropoutStudent(Student student) {
         enrolledStudents.remove(student);
         student.getGrades().remove(this);
     }
 
     public void printCourseRevenue() {
-        double courseRev = (enrolledStudents.size() * tuition);
+        double courseRev = (enrolledStudents.size() * TUITION);
         System.out.println("The revenue this course generated is : " + courseRev + "$");
     }
-
-    public double getCourseRevenue() {
-        double courseRev = (enrolledStudents.size() * tuition);
+@Override
+    public double getRevenue() {
+        double courseRev = (enrolledStudents.size() * TUITION);
         return courseRev;
-
     }
 
     public List<Student> getEnrolledStudents() {

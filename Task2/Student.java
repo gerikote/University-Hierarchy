@@ -99,6 +99,23 @@ public abstract class Student extends Person {
         return grades;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || (obj instanceof Student)) {
+            return false;
+        }
+        Student other = (Student) obj;
+        if (!this.getFirstName().equals(other.getFirstName())) {
+            return false;
+        }
+        if (!this.getLastName().equals(other.getLastName())) {
+            return false;
+        }
+        if (!this.getEmail().equals(other.getEmail())) {
+            return false;
+        }
 
+        return true;
+    }
 }
 

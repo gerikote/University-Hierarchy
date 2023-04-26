@@ -1,9 +1,8 @@
 package homework.Task2;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public final class AcademicStaff extends Staff implements WageCalculator {
+public final class AcademicStaff extends Staff implements Payable {
     private ArrayList<Course> courses;
 
     public AcademicStaff( String firstName, String lastName, String email) {
@@ -27,10 +26,10 @@ public final class AcademicStaff extends Staff implements WageCalculator {
 
     @Override
     public double calculateWage() {
-        double bonus = courses.size() * courseBonus;
-        double totalWage = baseWage + bonus;
+        double bonus = courses.size() * COURSE_BONUS;
+        double totalWage = BASE_WAGE + bonus;
         System.out.println("The professor's " + getFirstName() + " " + getLastName() + " is " + totalWage + "$"
-                + "\n" + "Base pay is " + baseWage + "$" + " and courses bonus is " + bonus + "$");
+                + "\n" + "Base pay is " + BASE_WAGE + "$" + " and courses bonus is " + bonus + "$");
         return totalWage;
     }
 }

@@ -26,21 +26,21 @@ public class Demo {
 
 
         //Creating Academic Staff
-        AcademicStaff professor1 = new AcademicStaff ("Clayton", "Tumblerson", "ctamp@gmail.com");
-        AcademicStaff professor2 = new AcademicStaff( "Tom", "Mullins", "tmullins@gmail.com");
-        AcademicStaff professor3 = new AcademicStaff( "Andrew", "Richards", "arichards@gmail.com");
+        AcademicStaff professor1 = new AcademicStaff("Clayton", "Tumblerson", "ctamp@gmail.com");
+        AcademicStaff professor2 = new AcademicStaff("Tom", "Mullins", "tmullins@gmail.com");
+        AcademicStaff professor3 = new AcademicStaff("Andrew", "Richards", "arichards@gmail.com");
 
 
         //Creating administrative Staff
-        AdministrativeStaff adminStaff1 = new AdministrativeStaff( "Tara", "Flowers", "tflowers@gmail.com");
-        AdministrativeStaff adminStaff2 = new AdministrativeStaff( "Jack", "Ford", "jford@gmail.com");
-        AdministrativeStaff adminStaff3 = new AdministrativeStaff( "John", "Wig", "jwigg@gmail.com");
-        AdministrativeStaff labAs1 = new AdministrativeStaff( "Carl", "Wig", "carl@gmail.com");
-        AdministrativeStaff labAs2 = new AdministrativeStaff( "Nick", "Wig", "nickw@gmail.com");
+        AdministrativeStaff adminStaff1 = new AdministrativeStaff("Tara", "Flowers", "tflowers@gmail.com");
+        AdministrativeStaff adminStaff2 = new AdministrativeStaff("Jack", "Ford", "jford@gmail.com");
+        AdministrativeStaff adminStaff3 = new AdministrativeStaff("John", "Wig", "jwigg@gmail.com");
+        AdministrativeStaff labAs1 = new AdministrativeStaff("Carl", "Wig", "carl@gmail.com");
+        AdministrativeStaff labAs2 = new AdministrativeStaff("Nick", "Wig", "nickw@gmail.com");
 
         //Adding responsibilities for admin staff
-        adminStaff1.addResponisbility("library organisation");
-        labAs1.addResponisbility("Prepare lab equipment");
+        adminStaff1.addResponsisbility("library organisation");
+        labAs1.addResponsisbility("Prepare lab equipment");
 
         //Adding staff to University
         NTUA.addStaff(professor1);
@@ -53,13 +53,13 @@ public class Demo {
         NTUA.addStaff(labAs2);
 
         //Creating lectures
-        Lecture math = new Lecture("101", "Math", 30, professor1);
-        Lecture biology = new Lecture("105", "Biology", 30, professor2);
-        Lecture physics = new Lecture("106", "Physics", 30, professor3);
+        Lecture math = new Lecture("101", "Math", professor1);
+        Lecture biology = new Lecture("105", "Biology", professor2);
+        Lecture physics = new Lecture("106", "Physics", professor3);
 
         //Creating labs
-        Lab physicsLab = new Lab("101", "Physics", 10, labAs1);
-        Lab biologyLab = new Lab("102", "Biology", 10, labAs2);
+        Lab physicsLab = new Lab("101", "Physics", labAs1);
+        Lab biologyLab = new Lab("102", "Biology", labAs2);
 
         //Enrolling students in classes
         math.enrollStudent(undergraduate1);
@@ -133,7 +133,7 @@ public class Demo {
         math.printCourseRevenue();
 
         System.out.println();
-        NTUA.calculateRevenue();
+        NTUA.getRevenue();
 
         //Print the University Details
         System.out.println();

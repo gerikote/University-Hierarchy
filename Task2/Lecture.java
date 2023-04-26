@@ -3,8 +3,8 @@ package homework.Task2;
 public class Lecture extends Course {
     private Staff lecturer;
 
-    public Lecture(String courseCode, String courseName, int maxStudents, Staff lecturer) {
-        super(courseCode, courseName, maxStudents);
+    public Lecture(String courseCode, String courseName, Staff lecturer) {
+        super(courseCode, courseName);
         this.lecturer = lecturer;
     }
 

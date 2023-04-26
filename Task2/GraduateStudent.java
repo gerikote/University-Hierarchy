@@ -13,8 +13,8 @@ public final class GraduateStudent extends Student implements Studyable {
     @Override
     public void study() {
         printThesisProgress();
-        if (thesisProgress < 100) {
-            thesisProgress += 5;
+        if (thesisProgress < MAX_THESIS_PROGRESS) {
+            thesisProgress += THESIS_PROGRESSION;
         }
         System.out.println("The student spent 1 hour studying!" + "\n"
                 + "After the session the progress is at " + thesisProgress + "%" + "\n");

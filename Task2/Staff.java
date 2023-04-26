@@ -23,5 +23,18 @@ public abstract class Staff extends Person {
     }
 
     public abstract void introduceMyself();
-
+@Override
+    public boolean equals(Object obj){
+        if((obj==null || !(obj instanceof Staff))){
+            return false;
+        }
+        Staff other = (Staff) obj;
+        if(!super.equals(other)){
+            return false;
+        }
+        if(!this.getStaffID().equals(other.getStaffID())){
+            return false;
+        }
+        return true;
+    }
 }
