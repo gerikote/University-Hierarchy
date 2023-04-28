@@ -4,7 +4,7 @@ package homework.Task2;
 public class Demo {
     public static void main(String[] args) {
         //Creating an object of University class
-        University NTUA = new University("National Technical University of Athens", "Athens,Zografu");
+        University university = new University("National Technical University of Athens", "Athens,Zografu");
 
         //Creating Graduate Students
         GraduateStudent graduate1 = new GraduateStudent("John", "Brown", "johnbrown@gmail.com", "Biology", "DNA structure analysis");
@@ -17,19 +17,17 @@ public class Demo {
         UndergraduateStudent undergraduate3 = new UndergraduateStudent("Chris", "White", "cwhite@gmail.com", "Physics", 4);
 
         //Adding students to University
-        NTUA.addStudent(graduate1);
-        NTUA.addStudent(graduate2);
-        NTUA.addStudent(graduate3);
-        NTUA.addStudent(undergraduate1);
-        NTUA.addStudent(undergraduate2);
-        NTUA.addStudent(undergraduate3);
-
+        university.addStudent(graduate1);
+        university.addStudent(graduate2);
+        university.addStudent(graduate3);
+        university.addStudent(undergraduate1);
+        university.addStudent(undergraduate2);
+        university.addStudent(undergraduate3);
 
         //Creating Academic Staff
         AcademicStaff professor1 = new AcademicStaff("Clayton", "Tumblerson", "ctamp@gmail.com");
         AcademicStaff professor2 = new AcademicStaff("Tom", "Mullins", "tmullins@gmail.com");
         AcademicStaff professor3 = new AcademicStaff("Andrew", "Richards", "arichards@gmail.com");
-
 
         //Creating administrative Staff
         AdministrativeStaff adminStaff1 = new AdministrativeStaff("Tara", "Flowers", "tflowers@gmail.com");
@@ -43,14 +41,14 @@ public class Demo {
         labAs1.addResponsisbility("Prepare lab equipment");
 
         //Adding staff to University
-        NTUA.addStaff(professor1);
-        NTUA.addStaff(professor2);
-        NTUA.addStaff(professor3);
-        NTUA.addStaff(adminStaff1);
-        NTUA.addStaff(adminStaff2);
-        NTUA.addStaff(adminStaff3);
-        NTUA.addStaff(labAs1);
-        NTUA.addStaff(labAs2);
+        university.addStaff(professor1);
+        university.addStaff(professor2);
+        university.addStaff(professor3);
+        university.addStaff(adminStaff1);
+        university.addStaff(adminStaff2);
+        university.addStaff(adminStaff3);
+        university.addStaff(labAs1);
+        university.addStaff(labAs2);
 
         //Creating lectures
         Lecture math = new Lecture("101", "Math", professor1);
@@ -75,11 +73,11 @@ public class Demo {
         biologyLab.enrollStudent(undergraduate2);
 
         //Adding courses to University
-        NTUA.addCourse(math);
-        NTUA.addCourse(biology);
-        NTUA.addCourse(physics);
-        NTUA.addCourse(biologyLab);
-        NTUA.addCourse(physicsLab);
+        university.addCourse(math);
+        university.addCourse(biology);
+        university.addCourse(physics);
+        university.addCourse(biologyLab);
+        university.addCourse(physicsLab);
 
         //Graduate 1 introducing himself
         graduate1.introduceMyself();
@@ -133,14 +131,14 @@ public class Demo {
         math.printCourseRevenue();
 
         System.out.println();
-        NTUA.getRevenue();
+        university.getRevenue();
 
         //Print the University Details
         System.out.println();
-        NTUA.printDetails();
+        university.printDetails();
 
         //Average course attendance
-        Course.averageAttendance();
+        Course.getAverageAttendance();
 
 
     }

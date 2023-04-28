@@ -3,7 +3,7 @@ package homework.Task2;
 
 import java.util.ArrayList;
 
-public class University implements RevenueCalculatable {
+public class University implements IRevenueCalculatable {
 
     private final String name;
     private String address;

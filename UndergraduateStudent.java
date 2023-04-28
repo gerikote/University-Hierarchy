@@ -1,6 +1,6 @@
 package homework.Task2;
 
-public final class UndergraduateStudent extends Student implements Studyable {
+public final class UndergraduateStudent extends Student implements IStudyable {
     private int yearLevel;
 
     public UndergraduateStudent(String firstName, String lastName, String email, String major, int yearLevel) {

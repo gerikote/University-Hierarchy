@@ -1,6 +1,6 @@
 package homework.Task2;
 
-public final class GraduateStudent extends Student implements Studyable {
+public final class GraduateStudent extends Student implements IStudyable {
     private String thesisTopic;
     private int thesisProgress;
 

@@ -6,7 +6,6 @@ public abstract class Staff extends Person {
 
     private String staffID;
 
-
     public Staff( String firstName, String lastName, String email) {
         super(firstName, lastName, email);
         this.staffID = generateStaffID();
@@ -23,6 +22,7 @@ public abstract class Staff extends Person {
     }
 
     public abstract void introduceMyself();
+
 @Override
     public boolean equals(Object obj){
         if((obj==null || !(obj instanceof Staff))){

@@ -1,6 +1,6 @@
 package homework.Task2;
 
-public interface Enrollable {
+public interface IEnrollable {
     int MAX_STUDENTS = 25;
 
     void enrollStudent(Student student);

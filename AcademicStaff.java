@@ -2,11 +2,11 @@ package homework.Task2;
 
 import java.util.ArrayList;
 
-public final class AcademicStaff extends Staff implements Payable {
+public final class AcademicStaff extends Staff implements IPayable {
     private ArrayList<Course> courses;
 
-    public AcademicStaff( String firstName, String lastName, String email) {
-        super( firstName, lastName, email);
+    public AcademicStaff(String firstName, String lastName, String email) {
+        super(firstName, lastName, email);
         this.courses = new ArrayList<>();
     }
 

@@ -24,7 +24,7 @@ public abstract class Student extends Person {
     public double calculateTuition() {
         int totalTuition = 0;
         for (int i = 0; i < enrolledCourses.size(); i++) {
-            totalTuition += enrolledCourses.get(i).getTuition();
+            totalTuition += enrolledCourses.get(i).TUITION;
         }
         System.out.println("The student is enrolled in the courses : " + enrolledCourses.toString() + "\n"
                 + "and the total amount owed in tuition fees is : " + totalTuition + "$");
@@ -42,7 +42,6 @@ public abstract class Student extends Person {
         String id = String.format("%05d", counter);
         return id;
     }
-
 
     public void study(Course course) {
         System.out.println("The grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades());

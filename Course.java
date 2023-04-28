@@ -2,7 +2,7 @@ package homework.Task2;
 
 import java.util.*;
 
-public class Course implements Enrollable,RevenueCalculatable {
+public class Course implements IEnrollable, IRevenueCalculatable {
 
     private String courseCode;
     private String courseName;
@@ -17,8 +17,8 @@ public class Course implements Enrollable,RevenueCalculatable {
         courseCount++;
     }
 
-    public static double averageAttendance() {
-        double averageAttendance = (double) totalEnrollments / (double) courseCount;
+    public static double getAverageAttendance() {
+        double averageAttendance =  totalEnrollments/courseCount;
         System.out.println("Average attendance is " + averageAttendance + " students/course");
         return averageAttendance;
     }
