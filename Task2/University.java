@@ -2,31 +2,42 @@ package homework.Task2;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class University {
+public class University implements RevenueCalculatable {
 
-    private String name;
+    private final String name;
     private String address;
-    private ArrayList<Students> students;
+    private ArrayList<Student> students;
     private ArrayList<Staff> staff;
     private ArrayList<Course> courses;
 
-    public University(String name, String address, ArrayList<Students> students, ArrayList<Staff> staff, ArrayList<Course> courses) {
+    public University(String name, String address) {
         this.name = name;
         this.address = address;
-        this.students = students;
-        this.staff = staff;
-        this.courses = courses;
+        this.students = new ArrayList<>();
+        this.staff = new ArrayList<>();
+        this.courses = new ArrayList<>();
 
+    }
+
+    public void addStudent(Student student) {
+        this.students.add(student);
+    }
+
+    public void dropoutStudent(Student student) {
+        this.students.remove(student);
+    }
+
+    public void addStaff(Staff staffMember) {
+        this.staff.add(staffMember);
+    }
+
+    public void addCourse(Course course) {
+        this.courses.add(course);
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getAddress() {
@@ -37,31 +48,29 @@ public class University {
         this.address = address;
     }
 
-    public ArrayList<Students> getStudents() {
+    public ArrayList<Student> getStudents() {
         return students;
-    }
-
-    public void setStudents(ArrayList<Students> students) {
-        this.students = students;
     }
 
     public ArrayList<Staff> getStaff() {
         return staff;
     }
 
-    public void setStaff(ArrayList<Staff> staff) {
-        this.staff = staff;
-    }
-
     public ArrayList<Course> getCourses() {
         return courses;
     }
 
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
+    @Override
+    public double getRevenue() {
+        double totalRev = 0;
+        for (int i = 0; i < courses.size(); i++) {
+            totalRev += courses.get(i).TUITION;
+        }
+        System.out.println("The total revenue for the University is : " + totalRev + "$");
+        return totalRev;
     }
 
-    public void getDetails() {
+    public void printDetails() {
         System.out.println("Welcome to " + getName() + "\n"
                 + "Our university is located in " + getAddress() + "\n"
                 + "The courses we offer are : " + getCourses() + "\n"

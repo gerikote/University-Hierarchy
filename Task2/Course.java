@@ -2,20 +2,25 @@ package homework.Task2;
 
 import java.util.*;
 
-public class Course {
+public class Course implements Enrollable,RevenueCalculatable {
 
     private String courseCode;
     private String courseName;
-    private String[] prerequisites;
-    private int maxStudents;
-    private List<Students> enrolledStudents;
+    private List<Student> enrolledStudents;
+    protected static int courseCount = 0;
+    protected static int totalEnrollments = 0;
 
-    public Course(String courseCode, String courseName, String[] prerequisites, int maxStudents) {
+    public Course(String courseCode, String courseName) {
         this.courseCode = courseCode;
         this.courseName = courseName;
-        this.prerequisites = prerequisites;
-        this.maxStudents = maxStudents;
         this.enrolledStudents = new ArrayList<>();
+        courseCount++;
+    }
+
+    public static double averageAttendance() {
+        double averageAttendance = (double) totalEnrollments / (double) courseCount;
+        System.out.println("Average attendance is " + averageAttendance + " students/course");
+        return averageAttendance;
     }
 
     public String getCourseCode() {
@@ -34,34 +39,37 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public String[] getPrerequisites() {
-        return prerequisites;
+    @Override
+    public void enrollStudent(Student student) {
+        if (enrolledStudents.size() < MAX_STUDENTS) {
+            System.out.println("The student " + student.getFirstName() + " " + student.getLastName() + " was successfully enrolled in the course " + getCourseName() + "\n");
+            enrolledStudents.add(student);
+            student.getGrades().put(this, 5); //Set the grade 5 initially;
+            student.enrollFromCourse(this);
+            totalEnrollments++;
+        } else {
+            System.out.println("We apologize but this class has reached the maximum number of students." + "\n"
+                    + "You can try again in the next semester.");
+        }
     }
 
-    public void setPrerequisites(String[] prerequisites) {
-        this.prerequisites = prerequisites;
-    }
-
-    public int getMaxStudents() {
-        return maxStudents;
-    }
-
-    public void setMaxStudents(int maxStudents) {
-        this.maxStudents = maxStudents;
-    }
-
-    public void enrollStudent(Students student) {
-        System.out.println("The student " + student.getFirstName() + " " +student.getLastName() + " was successfully enrolled in the course " + getCourseName() +"\n");
-        enrolledStudents.add(student);
-        student.getGrades().put(this, 5); //Set the grade 5 initially;
-    }
-
-    public void dropoutStudent(Students student) {
+    @Override
+    public void dropoutStudent(Student student) {
         enrolledStudents.remove(student);
         student.getGrades().remove(this);
     }
 
-    public List<Students> getEnrolledStudents() {
+    public void printCourseRevenue() {
+        double courseRev = (enrolledStudents.size() * TUITION);
+        System.out.println("The revenue this course generated is : " + courseRev + "$");
+    }
+@Override
+    public double getRevenue() {
+        double courseRev = (enrolledStudents.size() * TUITION);
+        return courseRev;
+    }
+
+    public List<Student> getEnrolledStudents() {
         return enrolledStudents;
     }
 
