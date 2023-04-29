@@ -1,4 +1,4 @@
-package homework.Task2;
+package homework.Task2.interfaces;
 
 public interface IRevenueCalculatable {
 

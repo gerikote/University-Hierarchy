@@ -1,4 +1,4 @@
-package homework.Task2;
+package homework.Task2.interfaces;
 
 public interface IPayable {
      double BASE_WAGE=30000;//base wage for all staff members

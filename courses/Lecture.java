@@ -1,4 +1,6 @@
-package homework.Task2;
+package homework.Task2.courses;
+
+import homework.Task2.people.Staff;
 
 public class Lecture extends Course {
     private Staff lecturer;

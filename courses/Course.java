@@ -1,9 +1,16 @@
-package homework.Task2;
+package homework.Task2.courses;
+
+import homework.Task2.exceptions.MaxStudentsReachedException;
+import homework.Task2.interfaces.IEnrollable;
+import homework.Task2.interfaces.IRevenueCalculatable;
+import homework.Task2.people.Student;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
 public class Course implements IEnrollable, IRevenueCalculatable {
-
+    private static final Logger logger = LogManager.getLogger(Course.class);
     private String courseCode;
     private String courseName;
     private List<Student> enrolledStudents;
@@ -18,7 +25,7 @@ public class Course implements IEnrollable, IRevenueCalculatable {
     }
 
     public static double getAverageAttendance() {
-        double averageAttendance =  totalEnrollments/courseCount;
+        double averageAttendance = totalEnrollments / courseCount;
         System.out.println("Average attendance is " + averageAttendance + " students/course");
         return averageAttendance;
     }
@@ -40,7 +47,7 @@ public class Course implements IEnrollable, IRevenueCalculatable {
     }
 
     @Override
-    public void enrollStudent(Student student) {
+    public void enrollStudent(Student student) throws MaxStudentsReachedException {
         if (enrolledStudents.size() < MAX_STUDENTS) {
             System.out.println("The student " + student.getFirstName() + " " + student.getLastName() + " was successfully enrolled in the course " + getCourseName() + "\n");
             enrolledStudents.add(student);
@@ -48,8 +55,7 @@ public class Course implements IEnrollable, IRevenueCalculatable {
             student.enrollFromCourse(this);
             totalEnrollments++;
         } else {
-            System.out.println("We apologize but this class has reached the maximum number of students." + "\n"
-                    + "You can try again in the next semester.");
+            throw new MaxStudentsReachedException("We apologize but this class has reached the maximum number of students.You can try again in the next semester ");
         }
     }
 
@@ -63,7 +69,8 @@ public class Course implements IEnrollable, IRevenueCalculatable {
         double courseRev = (enrolledStudents.size() * TUITION);
         System.out.println("The revenue this course generated is : " + courseRev + "$");
     }
-@Override
+
+    @Override
     public double getRevenue() {
         double courseRev = (enrolledStudents.size() * TUITION);
         return courseRev;

@@ -1,6 +1,11 @@
 package homework.Task2;
 
+import homework.Task2.people.Student;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Grade {
+    private static final Logger logger = LogManager.getLogger(Grade.class);
     private GradeCalculator gradeCalulator;
 
     public Grade() {

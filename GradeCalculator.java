@@ -1,5 +1,8 @@
 package homework.Task2;
 
+import homework.Task2.courses.Course;
+import homework.Task2.people.Student;
+
 import java.util.Map;
 
 public class GradeCalculator {
