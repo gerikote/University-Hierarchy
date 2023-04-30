@@ -1,10 +1,17 @@
 package homework.Task2;
 
 
+import homework.Task2.courses.Course;
+import homework.Task2.interfaces.IRevenueCalculatable;
+import homework.Task2.people.Staff;
+import homework.Task2.people.Student;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 
 public class University implements IRevenueCalculatable {
-
+    private static final Logger logger = LogManager.getLogger(University.class);
     private final String name;
     private String address;
     private ArrayList<Student> students;

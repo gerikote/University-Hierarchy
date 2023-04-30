@@ -7,5 +7,46 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OneDrive/Desktop/log4j/log4j-api-2.20.0.jar!/" />
+          <root url="jar://$USER_HOME$/OneDrive/Desktop/log4j/log4j-core-2.20.0 (1).jar!/" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="file://$USER_HOME$/OneDrive/Desktop/apache-log4j-1.2.17/site/apidocs" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/osgi/src/main/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/osgi/src/test/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi-examples/src/main/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi-examples/src/main/ruby/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi-examples/src/test/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi-excelant/src/main/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi-excelant/src/poi-ant-contrib/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi-excelant/src/test/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi-integration/src/test/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi-ooxml-lite-agent/src/main/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi-ooxml/src/main/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi-ooxml/src/test/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi-scratchpad/src/main/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi-scratchpad/src/test/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi/src/main/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/ApachePoiInstalFiles2/poi-src-5.2.3-20220909-5.2.3/poi/src/test/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/apache-log4j-1.2.17" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/apache-log4j-1.2.17/contribs/CekiGulcu" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/apache-log4j-1.2.17/contribs/Jamie Tsao" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/apache-log4j-1.2.17/contribs/JimMoore" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/apache-log4j-1.2.17/contribs/ThomasFenner" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/apache-log4j-1.2.17/src/main/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/apache-log4j-1.2.17/src/main/javadoc" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/apache-log4j-1.2.17/src/performance/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/apache-log4j-1.2.17/tests/src/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/cloned/lectures/src" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/selenium PDFs/seleniumCodeFromGithub/SeleniumJavaCourse-master/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

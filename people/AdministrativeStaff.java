@@ -1,12 +1,20 @@
-package homework.Task2;
+package homework.Task2.people;
+
+import homework.Task2.exceptions.InvalidAgeException;
+import homework.Task2.exceptions.InvalidEmailException;
+import homework.Task2.exceptions.InvalidNameFormatException;
+import homework.Task2.interfaces.IPayable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
 public final class AdministrativeStaff extends Staff implements IPayable {
+    private static final Logger logger = LogManager.getLogger(AcademicStaff.class);
     private ArrayList<String> responsibilities;
 
-    public AdministrativeStaff(String firstName, String lastName, String email) {
-        super(firstName, lastName, email);
+    public AdministrativeStaff(String firstName, String lastName, String email, int age) throws InvalidAgeException, InvalidNameFormatException, InvalidEmailException {
+        super(firstName, lastName, email, age);
         this.responsibilities = new ArrayList<>();
     }
 
