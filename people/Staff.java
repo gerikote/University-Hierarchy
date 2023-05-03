@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public abstract class Staff extends Person {
-    private static final Logger logger = LogManager.getLogger(Staff.class);
+    private static final Logger LOGGER = LogManager.getLogger(Staff.class);
     private static int counter = 0;
     private String staffID;
 

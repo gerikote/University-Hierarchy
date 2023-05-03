@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 
 public final class AdministrativeStaff extends Staff implements IPayable {
-    private static final Logger logger = LogManager.getLogger(AcademicStaff.class);
+    private static final Logger LOGGER = LogManager.getLogger(AcademicStaff.class);
     private ArrayList<String> responsibilities;
 
     public AdministrativeStaff(String firstName, String lastName, String email, int age) throws InvalidAgeException, InvalidNameFormatException, InvalidEmailException {
@@ -28,7 +28,7 @@ public final class AdministrativeStaff extends Staff implements IPayable {
 
     @Override
     public void introduceMyself() {
-        System.out.println("Hello. My name is " + firstName + " and i am part of the administrative staff. " + "\n"
+        LOGGER.info("Hello. My name is " + firstName + " and i am part of the administrative staff. " + "\n"
                 + "My responsibilities are " + responsibilities.toString() + "\n");
     }
 
@@ -36,7 +36,7 @@ public final class AdministrativeStaff extends Staff implements IPayable {
     public double calculateWage() {
         double bonus = RESPONSIBILITY_BONUS * (responsibilities.size());
         double totalWage = BASE_WAGE + bonus;
-        System.out.println("The staff member's " + firstName + " " + lastName + " total wage is " + totalWage + "$"
+        LOGGER.info("The staff member's " + firstName + " " + lastName + " total wage is " + totalWage + "$"
                 + "\n" + "Base pay is " + BASE_WAGE + "$" + " and responsibility bonus is " + bonus + "$");
         return totalWage;
     }

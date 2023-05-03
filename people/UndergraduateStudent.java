@@ -10,7 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public final class UndergraduateStudent extends Student implements IStudyable {
-    private static final Logger logger = LogManager.getLogger(UndergraduateStudent.class);
+    private static final Logger LOGGER = LogManager.getLogger(UndergraduateStudent.class);
     private int yearLevel;
 
     public UndergraduateStudent(String firstName, String lastName, String email, String major, int yearLevel, int age) throws InvalidAgeException, InvalidNameFormatException, InvalidEmailException {
@@ -24,14 +24,14 @@ public final class UndergraduateStudent extends Student implements IStudyable {
             if (this.enrolledCourses == null) {
                 throw new NotEnrolledException("Student " + getFirstName() + " " + getLastName() + " is not enrolled in any courses");
             }
-            System.out.println("The grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades());
-            System.out.println("The student just spent an entire day studying all his classes");
+            LOGGER.info("The grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades());
+            LOGGER.info("The student just spent an entire day studying all his classes");
             for (Course course : super.getGrades().keySet()) {
                 int currentGrade = super.getGrades().get(course);
                 super.getGrades().put(course, currentGrade + 1);
             }
-            System.out.println("The new grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades());
-            System.out.println();
+            LOGGER.info("The new grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades() + "\n");
+
         } catch (NotEnrolledException ex) {
             System.out.println(ex.getMessage());
         }
@@ -44,7 +44,7 @@ public final class UndergraduateStudent extends Student implements IStudyable {
 
     @Override
     public void introduceMyself() {
-        System.out.println("Hello. My name is " + getFirstName() + ".\n" +
+        LOGGER.info("Hello. My name is " + getFirstName() + ".\n" +
                 "I am on the " + getYearLevel() + " year and my major is " + getMajor() + "\n");
     }
 }

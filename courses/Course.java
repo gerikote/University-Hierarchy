@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.*;
 
 public class Course implements IEnrollable, IRevenueCalculatable {
-    private static final Logger logger = LogManager.getLogger(Course.class);
+    private static final Logger LOGGER = LogManager.getLogger(Course.class);
     private String courseCode;
     private String courseName;
     private List<Student> enrolledStudents;
@@ -26,7 +26,7 @@ public class Course implements IEnrollable, IRevenueCalculatable {
 
     public static double getAverageAttendance() {
         double averageAttendance = totalEnrollments / courseCount;
-        System.out.println("Average attendance is " + averageAttendance + " students/course");
+        LOGGER.info("Average attendance is " + averageAttendance + " students/course");
         return averageAttendance;
     }
 
@@ -49,7 +49,7 @@ public class Course implements IEnrollable, IRevenueCalculatable {
     @Override
     public void enrollStudent(Student student) throws MaxStudentsReachedException {
         if (enrolledStudents.size() < MAX_STUDENTS) {
-            System.out.println("The student " + student.getFirstName() + " " + student.getLastName() + " was successfully enrolled in the course " + getCourseName() + "\n");
+            LOGGER.info("The student " + student.getFirstName() + " " + student.getLastName() + " was successfully enrolled in the course " + getCourseName() + "\n");
             enrolledStudents.add(student);
             student.getGrades().put(this, 5); //Set the grade 5 initially;
             student.enrollFromCourse(this);
@@ -67,7 +67,7 @@ public class Course implements IEnrollable, IRevenueCalculatable {
 
     public void printCourseRevenue() {
         double courseRev = (enrolledStudents.size() * TUITION);
-        System.out.println("The revenue this course generated is : " + courseRev + "$");
+        LOGGER.info("The revenue this course generated is : " + courseRev + "$");
     }
 
     @Override

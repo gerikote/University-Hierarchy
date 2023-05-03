@@ -15,7 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Demo {
-    private static final Logger logger = LogManager.getLogger(Demo.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(Demo.class.getName());
 
     public static void main(String[] args) {
         //Creating an object of University class
@@ -74,7 +74,7 @@ public class Demo {
             labAs1 = new AdministrativeStaff("Carl", "Wig", "carl@gmail.com", 29);
             labAs2 = new AdministrativeStaff("Nick", "Wig", "nickw@gmail.com", 35);
         } catch (InvalidAgeException | InvalidNameFormatException | InvalidEmailException ex) {
-            System.out.println(ex.getMessage());
+            LOGGER.info(ex.getMessage());
         }
 
         //Adding responsibilities for admin staff
@@ -159,7 +159,7 @@ public class Demo {
         undergraduate1.study(math);
 
         //Calculate GPA
-        System.out.println(grade.calculateGPA(undergraduate1));
+        LOGGER.info(grade.calculateGPA(undergraduate1));
         System.out.println();
 
         //Student gives an exam

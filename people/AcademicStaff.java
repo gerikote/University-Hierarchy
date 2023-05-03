@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 
 public final class AcademicStaff extends Staff implements IPayable {
-    private static final Logger logger = LogManager.getLogger(AcademicStaff.class);
+    private static final Logger LOGGER = LogManager.getLogger(AcademicStaff.class);
     private ArrayList<Course> courses;
 
     public AcademicStaff(String firstName, String lastName, String email, int age) throws InvalidAgeException, InvalidNameFormatException, InvalidEmailException {
@@ -29,7 +29,7 @@ public final class AcademicStaff extends Staff implements IPayable {
 
     @Override
     public void introduceMyself() {
-        System.out.println("Hello. My name is Professor " + getFirstName() + ".\n" +
+        LOGGER.info("Hello. My name is Professor " + getFirstName() + ".\n" +
                 "and i teach the classes " + courses.toString() + "\n");
     }
 
@@ -37,7 +37,7 @@ public final class AcademicStaff extends Staff implements IPayable {
     public double calculateWage() {
         double bonus = courses.size() * COURSE_BONUS;
         double totalWage = BASE_WAGE + bonus;
-        System.out.println("The professor's " + getFirstName() + " " + getLastName() + " is " + totalWage + "$"
+        LOGGER.info("The professor's " + getFirstName() + " " + getLastName() + " is " + totalWage + "$"
                 + "\n" + "Base pay is " + BASE_WAGE + "$" + " and courses bonus is " + bonus + "$");
         return totalWage;
     }

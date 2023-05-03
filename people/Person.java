@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public abstract class Person {
-    private static final Logger logger = LogManager.getLogger(Person.class);
+    private static final Logger LOGGER = LogManager.getLogger(Person.class);
     String firstName;
     String lastName;
     String email;

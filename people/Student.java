@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.*;
 
 public abstract class Student extends Person {
-    private static final Logger logger = LogManager.getLogger(Student.class);
+    private static final Logger LOGGER = LogManager.getLogger(Student.class);
     private static int counter = 0;
     private String studentID;
     private String major;
@@ -35,14 +35,14 @@ public abstract class Student extends Person {
         for (int i = 0; i < enrolledCourses.size(); i++) {
             totalTuition += enrolledCourses.get(i).TUITION;
         }
-        System.out.println("The student is enrolled in the courses : " + enrolledCourses.toString() + "\n"
+        LOGGER.info("The student is enrolled in the courses : " + enrolledCourses.toString() + "\n"
                 + "and the total amount owed in tuition fees is : " + totalTuition + "$");
 
         return totalTuition;
     }
 
     public void payTuition() {
-        System.out.println("The Student " + firstName + " " + lastName + " with student id : " + studentID + "\n"
+        LOGGER.info("The Student " + firstName + " " + lastName + " with student id : " + studentID + "\n"
                 + " has successfully paid his total tuition of " + this.calculateTuition() + "$");
     }
 
@@ -57,14 +57,13 @@ public abstract class Student extends Person {
             if (!enrolledCourses.contains(course)) {
                 throw new NotEnrolledException("Student " + getFirstName() + " " + getLastName() + " is not enrolled in the " + course.getCourseName());
             }
-            System.out.println("The grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades());
-            System.out.println("The student is studying " + course.getCourseName());
+            LOGGER.info("The grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades());
+            LOGGER.info("The student is studying " + course.getCourseName());
             int currentGrade = grades.get(course);
             grades.put(course, currentGrade + 1);
-            System.out.println("The new grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades());
-            System.out.println();
+            LOGGER.info("The new grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades() +"\n");
         } catch (NotEnrolledException ex) {
-            System.out.println("Error: " + ex.getMessage());
+            LOGGER.info("Error: " + ex.getMessage());
         }
     }
 
@@ -74,22 +73,22 @@ public abstract class Student extends Person {
             if (!enrolledCourses.contains(course)) {
                 throw new NotEnrolledException("Student " + getFirstName() + " " + getLastName() + " is not enrolled in the " + course.getCourseName());
             }
-            System.out.println("The grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades());
-            System.out.println("The student " + getFirstName() + " is ready to give a " + course.getCourseName() + " exam");
+            LOGGER.info("The grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades());
+            LOGGER.info("The student " + getFirstName() + " is ready to give a " + course.getCourseName() + " exam");
             int randomNumber = (int) (Math.random() * 101);
-            System.out.println("Exam score is : " + randomNumber + "/100");
+            LOGGER.info("Exam score is : " + randomNumber + "/100");
             if (randomNumber >= 50) {
-                System.out.println("Congratulations!! Exam passed successfully! Course grade is going to increase by 1");
+                LOGGER.info("Congratulations!! Exam passed successfully! Course grade is going to increase by 1");
                 int currentGrade = grades.get(course);
                 grades.put(course, currentGrade + 1);
             } else {
-                System.out.println("Exam failed.Course grade is going to decrease by 1");
+                LOGGER.info("Exam failed.Course grade is going to decrease by 1");
                 int currentGrade = grades.get(course);
                 grades.put(course, currentGrade - 1);
             }
-            System.out.println("The new grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades() + "\n");
+            LOGGER.info("The new grades for student " + getFirstName() + " " + getLastName() + " are :" + getGrades() + "\n");
         } catch (NotEnrolledException ex) {
-            System.out.println(ex.getMessage());
+            LOGGER.info(ex.getMessage());
         }
     }
 
